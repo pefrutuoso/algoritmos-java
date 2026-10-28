@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+public class Pessoa {
+    //Atributos
+    private String nome;
+    private int idade;
+    private float peso;
+
+    //Construtor
+    public Pessoa(String nome, int idade, float peso){
+        this.nome = nome;
+        this.idade = idade;
+        this.peso = peso;
+    }
+
+    //Métodos
+    public void exibirInfos(){
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Peso: " + peso);
+    }
+
+    //gets e sets
+    public String getNome() { //Nome
+        return this.nome;
+    }
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    public int getIdade() { //Idade
+        return this.idade;
+    }
+    public void setIdade(int idade){
+        this.idade = idade;
+    }
+    
+    public float getPeso() { //Peso
+        return this.peso;
+    }
+    public void setPeso(float peso){
+        this.peso = peso;
+    }
+
+    public void aniversario(){
+        this.idade = this.idade + 1;
+        //this.idade += 1;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Pessoa pessoa = new Pessoa("Pedro", 26, 65.5f);
+        pessoa.exibirInfos();
+
+        System.out.println(); //pula linha
+
+        pessoa.aniversario();
+        pessoa.exibirInfos();
+
+        System.out.println(); //pula linha
+
+        pessoa.setNome("Pedro Frutuoso");
+        pessoa.setPeso(70.1f);
+        pessoa.exibirInfos();
+
+        System.out.println(); //pula linha
+
+        System.out.print("Digite seu nome: ");
+        String nome = scanner.nextLine();
+        System.out.print("Digite sua idade: ");
+        int idade = Integer.parseInt(scanner.nextLine());
+        System.out.print("Digite seu peso: ");
+        float peso = Float.parseFloat(scanner.nextLine());
+        scanner.close();
+
+        Pessoa pessoa2 = new Pessoa(nome,idade,peso);
+        
+        pessoa2.exibirInfos();
+
+    }
+}
